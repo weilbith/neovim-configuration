@@ -9,7 +9,7 @@ require('conform').setup({
     filter = function(client)
       -- Causes issues in combination with Prettier formatting.
       -- Disabling formatting on server configuration causes issues in conform.
-      return client.name ~= 'VSCode TypeScript Wrapper'
+      return client.name ~= 'vtsls'
     end,
   },
 })
