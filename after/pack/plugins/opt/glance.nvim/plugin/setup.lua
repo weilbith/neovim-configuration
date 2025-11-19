@@ -28,9 +28,12 @@ glance.setup({
   hooks = {
     before_open = function(results, open, _, method)
       if method == 'rust-analyzer_related-tests' then
-        results = vim.tbl_map(function(entry)
-          return entry.runnable.location
-        end, results)
+        results = vim
+          .iter(results)
+          :map(function(entry)
+            return entry.runnable.location
+          end)
+          :totable()
       end
 
       open(results)

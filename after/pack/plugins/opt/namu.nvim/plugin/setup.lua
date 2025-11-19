@@ -1,12 +1,18 @@
 local icons = require('icons')
 
-local kindIcons = vim.tbl_map(function(symbol_kind)
-  return symbol_kind.icon
-end, icons.LSP.symbol_kind)
+local kindIcons = vim
+  .iter(icons.LSP.symbol_kind)
+  :map(function(symbol_kind)
+    return symbol_kind.icon
+  end)
+  :totable()
 
-local kindsHighlights = vim.tbl_map(function(symbol_kind)
-  return symbol_kind.highlight
-end, icons.LSP.symbol_kind)
+local kindsHighlights = vim
+  .iter(icons.LSP.symbol_kind)
+  :map(function(symbol_kind)
+    return symbol_kind.highlight
+  end)
+  :totable()
 
 require('namu').setup({
   namu_symbols = {

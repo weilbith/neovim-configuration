@@ -56,9 +56,12 @@ local function get_middleware_stack(method_name, file_type)
     return a.priority > b.priority
   end)
 
-  local middleware_stack = vim.tbl_map(function(entry)
-    return entry.handler
-  end, all_handlers)
+  local middleware_stack = vim
+    .iter(all_handlers)
+    :map(function(entry)
+      return entry.handler
+    end)
+    :totable()
 
   return middleware_stack
 end

@@ -25,18 +25,24 @@ end
 --- and focuses them on the current piece of code where these hints might be
 --- helpful.
 --- Requires for more eager redrawing of inlay hints to take properly effect.
-require("lsp.start.middleware").add_middleware('textDocument/inlayHint', function(error, result, context, configuration)
-  if #(result or {}) > 0 then
-    local range = get_active_scope_range(context.bufnr)
+require('lsp.start.middleware').add_middleware(
+  'textDocument/inlayHint',
+  function(error, result, context, configuration)
+    if #(result or {}) > 0 then
+      local range = get_active_scope_range(context.bufnr)
 
-    if range ~= nil then
-      result = vim.tbl_filter(function(inlay_hint)
-        return inlay_hint_is_in_range(inlay_hint, range.start_line, range.end_line)
-      end, result or {})
-    else
-      result = {}
+      if range ~= nil then
+        result = vim
+          .iter(result or {})
+          :filter(function(inlay_hint)
+            return inlay_hint_is_in_range(inlay_hint, range.start_line, range.end_line)
+          end)
+          :totable()
+      else
+        result = {}
+      end
     end
-  end
 
-  return true, error, result, context, configuration
-end)
+    return true, error, result, context, configuration
+  end
+)

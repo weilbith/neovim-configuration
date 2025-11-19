@@ -1,8 +1,11 @@
 local icons = require('icons')
 
-local symbols = vim.tbl_map(function(symbol_kind)
-  return { icon = symbol_kind.icon, hl = symbol_kind.highlight }
-end, icons.LSP.symbol_kind)
+local symbols = vim
+  .iter(icons.LSP.symbol_kind)
+  :map(function(symbol_kind)
+    return { icon = symbol_kind.icon, hl = symbol_kind.highlight }
+  end)
+  :totable()
 
 require('symbols-outline').setup({
   width = 35,

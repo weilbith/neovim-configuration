@@ -64,7 +64,7 @@ end
 --- @return fun(code_actions: table[]): boolean code_action_handler
 local function get_code_action_handler(client, is_matching_code_action)
   return function(code_actions)
-    local matching_code_action = vim.tbl_filter(is_matching_code_action, code_actions)[1]
+    local matching_code_action = vim.iter(code_actions):find(is_matching_code_action)
 
     if matching_code_action ~= nil then
       execute_code_action(client, matching_code_action)

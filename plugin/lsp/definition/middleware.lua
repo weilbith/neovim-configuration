@@ -15,7 +15,7 @@ local function result_matches_scenario_of_react_component_definition_result(resu
 
   local has_scenario_specific_number_of_entries = #result == 2
   local any_entry_points_to_react_type_definition =
-    vim.tbl_contains(result, location_points_to_react_type_definitions, { predicate = true })
+    vim.iter(result):any(location_points_to_react_type_definitions)
 
   return has_scenario_specific_number_of_entries and any_entry_points_to_react_type_definition
 end
@@ -33,9 +33,12 @@ end
 --- @return table result but potentially filtered
 local function filter_results_to_react_node_type(result)
   if result_matches_scenario_of_react_component_definition_result(result) then
-    return vim.tbl_filter(function(location)
-      return not location_points_to_react_type_definitions(location)
-    end, result)
+    return vim
+      .iter(result)
+      :filter(function(location)
+        return not location_points_to_react_type_definitions(location)
+      end)
+      :totable()
   else
     return result
   end
