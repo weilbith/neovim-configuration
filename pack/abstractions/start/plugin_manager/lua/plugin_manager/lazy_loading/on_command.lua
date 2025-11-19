@@ -2,8 +2,8 @@
 --- an executable command again.
 --- (see `:help nvim_create_user_command()` and `:help vim.cmd()`)
 ---
---- @param captured_arguments table
---- @return table command
+--- @param captured_arguments vim.api.keyset.create_user_command.command_args
+--- @return vim.api.keyset.cmd command
 local function parse_captured_arguments_as_command(captured_arguments)
   return {
     cmd = captured_arguments.name,
@@ -17,15 +17,16 @@ local function parse_captured_arguments_as_command(captured_arguments)
     -- nargs = TODO (does that make sense?)
     -- nextcmd = TODO (not supported?)
     -- magic = TODO (not supported?)
-    mods = captured_arguments.smods,
+    mods = captured_arguments.smods --[[@as vim.api.keyset.cmd.mods]],
   }
 end
 
---- Handler for a user command. Mediates to the actual command.
---- (see `:help nvim_create_user_command()`)
+--- Creates a handler for a specific plugin, used for a user command execution.
+--- The handler will load the plugin first. Afterwards it uses the given arguments
+--- to call the actual command by the plugin.
 ---
 --- @param plugin_name string
---- @return function command_handler
+--- @return fun(arguments: vim.api.keyset.create_user_command.command_args) execution_handler
 local function create_handler_for_placeholder_command(plugin_name)
   return function(captured_arguments)
     vim.cmd.packadd(plugin_name)
@@ -35,12 +36,13 @@ local function create_handler_for_placeholder_command(plugin_name)
   end
 end
 
---- Callback for user command completion. Mediates to the actual command.
---- (see `:help nvim_create_user_command()`)
+--- Creates a callback for a specific plugin, used for a user command completion.
+--- The callback will load the plugin first. Afterwards it triggers the
+--- completion of the actual command.
 ---
 --- @param plugin_name string
 --- @param command_name string
---- @return function handler
+--- @return fun(): string[] completion_callback
 local function create_callback_for_command_completion(plugin_name, command_name)
   return function()
     vim.cmd.packadd(plugin_name)
