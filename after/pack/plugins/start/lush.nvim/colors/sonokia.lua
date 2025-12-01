@@ -126,6 +126,7 @@ lush(lush(function(injected_functions)
     DiffAdd({ bg = '#274949' }),
     DiffChange({ bg = '#252a3f' }),
     DiffText({ bg = '#394b70', gui = 'bold' }),
+    DiffTextAdd({ bg = '#394b70', gui = 'bold,italic' }),
     DiffDelete({ fg = Red.fg, bg = '#3a273a' }),
 
     VcsStatusModified({ Blue }),
@@ -272,15 +273,6 @@ lush(lush(function(injected_functions)
     helpExample({ Green }),
     helpSpecial({ Purple }),
     helpSectionDelim({ Grey }),
-    -- Git Diff
-    diffAdded({ Green }),
-    diffRemoved({ Red }),
-    diffChanged({ Blue }),
-    diffOldFile({ Yellow }),
-    diffNewFile({ Orange }),
-    diffFile({ Purple }),
-    diffLine({ Grey }),
-    diffIndexLine({ Purple }),
     -- Makefile
     makeIdent({ Purple }),
     makeSpecTarget({ Blue }),
