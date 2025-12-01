@@ -122,10 +122,22 @@ lush(lush(function(injected_functions)
     ColorColumn({ CursorColumn }),
     CursorLine({ CursorColumn }),
     CursorLineNr({ White }),
+
     DiffAdd({ bg = '#274949' }),
     DiffChange({ bg = '#252a3f' }),
     DiffText({ bg = '#394b70', gui = 'bold' }),
     DiffDelete({ fg = Red.fg, bg = '#3a273a' }),
+
+    VcsStatusModified({ Blue }),
+    VcsStatusFileTypeChanged({ BlueItalic }),
+    VcsStatusAdded({ Green }),
+    VcsStatusDeleted({ Red }),
+    VcsStatusRenamed({ BlueUnderline }),
+    VcsStatusFileCopied({ BlueBold }),
+    VcsStatusConflict({ OrangeBold }),
+    VcsStatusUntracked({ Purple }),
+    VcsStatusIgnored({ Grey }),
+
     Directory({ Green }),
     ErrorMsg({ RedBackgroundContrast, gui = 'bold,underline' }),
     WarningMsg({ OrangeBold }),

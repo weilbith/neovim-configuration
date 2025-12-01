@@ -1,1 +1,11 @@
 vim.api.nvim_set_hl(0, 'DiffviewDiffDeleteDim', { link = 'Grey' })
+
+vim.api.nvim_set_hl(0, 'DiffviewStatusModified', { link = 'VcsStatusModified' })
+vim.api.nvim_set_hl(0, 'DiffviewStatusTypeChanged', { link = 'VcsStatusFileTypeChanged' })
+vim.api.nvim_set_hl(0, 'DiffviewStatusAdded', { link = 'VcsStatusAdded' })
+vim.api.nvim_set_hl(0, 'DiffviewStatusDeleted', { link = 'VcsStatusDeleted' })
+vim.api.nvim_set_hl(0, 'DiffviewStatusRenamed', { link = 'VcsStatusRenamed' })
+vim.api.nvim_set_hl(0, 'DiffviewStatusCopied', { link = 'VcsStatusCopied' })
+vim.api.nvim_set_hl(0, 'DiffviewStatusUnmerged', { link = 'VcsStatusConflict' })
+vim.api.nvim_set_hl(0, 'DiffviewStatusUntracked', { link = 'VcsStatusUntracked' })
+vim.api.nvim_set_hl(0, 'DiffviewStatusIgnored', { link = 'VcsStatusIgnored' })
