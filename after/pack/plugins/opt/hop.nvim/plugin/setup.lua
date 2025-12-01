@@ -1,3 +1,6 @@
+vim.cmd.packadd('nvim-treesitter')
+vim.cmd.packadd('nvim-treesitter-textobjects')
+
 require('hop').setup({
   winblend = 80,
 })
