@@ -2,7 +2,7 @@
 --- @return boolean
 local function does_any_client_support_formatting(buffer)
   local clients_with_support = vim.lsp.get_clients({
-    method = 'textDocument/formatting',
+    method = vim.lsp.protocol.Methods.textDocument_formatting,
     bufnr = buffer or 0,
   })
   return #clients_with_support > 0
@@ -10,7 +10,7 @@ end
 
 --- @param buffer? number
 local function format_with_language_client(buffer)
-  if does_any_client_support_formatting(buffer) then
+  if does_any_client_support_formatting(buffer) then -- Avoid disturbing warning messages.
     vim.lsp.buf.format({ bufnr = buffer, async = false })
   end
 end

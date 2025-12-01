@@ -44,7 +44,12 @@ local function filter_results_to_react_node_type(result)
   end
 end
 
-add_middleware('textDocument/definition', function(error, result, context, configuration)
-  result = filter_results_to_react_node_type(result)
-  return true, error, result, context, configuration
-end, 100, 'typescriptreact')
+add_middleware(
+  vim.lsp.protocol.Methods.textDocument_definition,
+  function(error, result, context, configuration)
+    result = filter_results_to_react_node_type(result)
+    return true, error, result, context, configuration
+  end,
+  100,
+  'typescriptreact'
+)

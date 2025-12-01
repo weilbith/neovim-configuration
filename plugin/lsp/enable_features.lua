@@ -10,7 +10,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(arguments)
     local client = vim.lsp.get_client_by_id(arguments.data.client_id)
 
-    if client ~= nil and client:supports_method('textDocument/documentColor') then
+    if
+      client ~= nil and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentColor)
+    then
       vim.lsp.document_color.enable(true, arguments.buf, { style = 'virtual' })
     end
   end,

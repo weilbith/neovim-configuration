@@ -26,7 +26,7 @@ end
 --- helpful.
 --- Requires for more eager redrawing of inlay hints to take properly effect.
 require('lsp.start.middleware').add_middleware(
-  'textDocument/inlayHint',
+  vim.lsp.protocol.Methods.textDocument_inlayHint,
   function(error, result, context, configuration)
     if #(result or {}) > 0 then
       local range = get_active_scope_range(context.bufnr)

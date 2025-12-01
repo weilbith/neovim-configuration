@@ -4,7 +4,7 @@ local group_identifier = vim.api.nvim_create_augroup('InlayHints', {})
 --- @return boolean
 local function inlay_hints_are_supported(buffer)
   local clients_with_support = vim.lsp.get_clients({
-    method = 'textDocumen/inlayHint',
+    method = vim.lsp.protocol.Methods.textDocument_inlayHint,
     bufnr = buffer or 0,
   })
   return #clients_with_support > 0

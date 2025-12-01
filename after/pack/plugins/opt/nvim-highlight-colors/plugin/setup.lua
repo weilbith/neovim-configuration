@@ -6,11 +6,10 @@ require('nvim-highlight-colors').setup({
   enable_tailwind = false,
   -- Disable in advantage of native feature via LSP when available.
   exclude_buffer = function(buffer)
-    local any_attached_client_provides_colors = vim
-      .iter(vim.lsp.get_clients({ bufnr = buffer }))
-      :find(function(client)
-        return client:supports_method('textDocument/documentColor')
-      end)
+    local any_attached_client_provides_colors = #vim.lsp.get_clients({
+      bufnr = buffer,
+      method = vim.lsp.protocol.Methods.textDocument_documentColor,
+    }) > 0
 
     return any_attached_client_provides_colors
   end,
