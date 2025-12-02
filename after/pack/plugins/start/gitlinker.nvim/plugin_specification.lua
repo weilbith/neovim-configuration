@@ -1,1 +1,1 @@
-require('packer').use({ 'ruifm/gitlinker.nvim', opt = true })
+require('packer').use({ 'linrongbin16/gitlinker.nvim', opt = true })
