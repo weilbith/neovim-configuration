@@ -1,6 +1,6 @@
 require('plugin_manager').lazy_load_plugin_on_command('inc-rename.nvim', 'IncRename')
 
-vim.keymap.set('n', 'grN', function()
+vim.keymap.set('n', 'grn', function()
   local current_name = vim.fn.expand('<cword>')
   local _, error = pcall(vim.cmd.IncRename, current_name)
 
