@@ -1,6 +1,6 @@
 vim.keymap.set(
   'n',
-  'gD',
+  'gd',
   vim.lsp.buf.definition,
   { desc = 'jump to definition of target under cursor (LSP)' }
 )
