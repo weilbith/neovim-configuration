@@ -69,7 +69,7 @@ vim.opt.listchars = {
   precedes = ' ',
 }
 vim.opt.diffopt = 'internal,filler,closeoff,vertical,context:3,algorithm:patience'
-vim.opt.viewoptions = { 'cursor', 'folds', 'slash', 'unix' }
+vim.opt.viewoptions = { 'cursor', 'folds' }
 vim.opt.laststatus = 0
 vim.opt.cmdheight = 1
 vim.opt.splitkeep = 'screen'
