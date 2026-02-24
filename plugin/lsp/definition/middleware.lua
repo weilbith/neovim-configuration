@@ -1,5 +1,3 @@
-local add_middleware = require('lsp.start.middleware').add_middleware
-
 --- @param location table<string, any> - Location object according to LSP
 --- @return boolean
 local function location_points_to_react_type_definitions(location)
@@ -44,7 +42,7 @@ local function filter_results_to_react_node_type(result)
   end
 end
 
-add_middleware(
+require('lsp.start.middleware').register_handler(
   vim.lsp.protocol.Methods.textDocument_definition,
   function(error, result, context, configuration)
     result = filter_results_to_react_node_type(result)
