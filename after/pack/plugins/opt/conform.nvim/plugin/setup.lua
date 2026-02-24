@@ -3,6 +3,7 @@ require('conform').setup({
     lua = { 'stylua' },
     typescript = { 'prettierd' },
     typescriptreact = { 'prettierd' },
+    rust = { lsp_format = 'first' },
   },
   default_format_ops = {
     lsp_format = 'first',
