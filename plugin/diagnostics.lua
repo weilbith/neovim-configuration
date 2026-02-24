@@ -1,5 +1,3 @@
-local icons = require('icons')
-local severity = vim.diagnostic.severity
 local namespace = vim.api.nvim_create_namespace('lsp/diagnostic')
 
 local function number_to_circular_number(_, index)
@@ -14,10 +12,10 @@ vim.diagnostic.config({
   },
   signs = {
     text = {
-      [severity.ERROR] = icons.Error,
-      [severity.WARN] = '',
-      [severity.INFO] = '',
-      [severity.HINT] = '󰍢',
+      [vim.diagnostic.severity.ERROR] = require('icons').Error,
+      [vim.diagnostic.severity.WARN] = '',
+      [vim.diagnostic.severity.INFO] = '',
+      [vim.diagnostic.severity.HINT] = '󰍢',
     },
   },
   float = {
