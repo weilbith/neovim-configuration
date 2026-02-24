@@ -101,6 +101,54 @@
         }
       }
     },
+    "tree-sitter@0.25.10": {
+      "last_modified": "2026-01-23T17:20:52Z",
+      "resolved": "github:NixOS/nixpkgs/a1bab9e494f5f4939442a57a58d0449a109593fe#tree-sitter",
+      "source": "devbox-search",
+      "version": "0.25.10",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/45r9sgnq70q7mbcrw726vcvckcxgyf52-tree-sitter-0.25.10",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/45r9sgnq70q7mbcrw726vcvckcxgyf52-tree-sitter-0.25.10"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/3wssp2j2hf0rmlhac64cx908g0mmpx4w-tree-sitter-0.25.10",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/3wssp2j2hf0rmlhac64cx908g0mmpx4w-tree-sitter-0.25.10"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/l9c68fia75msgcd58r88smkqwv6iqsj0-tree-sitter-0.25.10",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/l9c68fia75msgcd58r88smkqwv6iqsj0-tree-sitter-0.25.10"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/kdq7yxriv69gk1098mlawphijs3p2y7v-tree-sitter-0.25.10",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/kdq7yxriv69gk1098mlawphijs3p2y7v-tree-sitter-0.25.10"
+        }
+      }
+    },
     "vim-language-server@2.3.1": {
       "last_modified": "2024-11-03T14:18:04Z",
       "resolved": "github:NixOS/nixpkgs/4ae2e647537bcdbb82265469442713d066675275#vim-language-server",
