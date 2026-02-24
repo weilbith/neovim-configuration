@@ -23,7 +23,6 @@ vim.diagnostic.config({
   float = {
     border = 'single',
     header = '',
-    focusable = false,
     anchor_bias = 'below',
     source = true,
     prefix = number_to_circular_number,
