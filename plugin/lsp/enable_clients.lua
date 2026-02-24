@@ -78,14 +78,17 @@ local function start_to_notify_about_missing_server_installations()
       local is_buffer_listed = vim.bo[arguments.buf].buflisted
 
       if is_buffer_listed then
-        local clients_names_with_missing_server = vim
+        local client_names_with_missing_server = vim
           .iter(get_list_of_client_names())
           :filter(has_support_for_filetype_but_missing_server_installation(arguments.match))
-          :join(', ')
+          :totable()
 
-        vim.schedule(function() -- do not block UI
-          vim.notify('Missing server installations for: ' .. clients_names_with_missing_server)
-        end)
+        if #client_names_with_missing_server > 0 then
+          vim.schedule(function() -- do not block UI
+            local name_listing = vim.iter(client_names_with_missing_server):join(', ')
+            vim.notify('Missing server installations for: ' .. name_listing)
+          end)
+        end
       end
     end,
     desc = 'Notify about missing server installation for client of matching filetype.',
