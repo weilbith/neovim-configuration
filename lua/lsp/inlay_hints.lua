@@ -50,21 +50,26 @@ end
 
 --- Toggles inlay hints on or off. Applies locally for a specific buffer only
 --- if specified, else globally for all buffers.
+--- In case of toggling the global state, it will be evaluated based in the
+--- current buffer, because that's most likely what the user wants. So if the
+--- local buffer has inlay hints activated, toggling will disable it globally
+--- and inverse.
 ---
 --- @param buffer? number
 --- @return boolean if inlay hints are now on or off
 local function toggle(buffer)
+  buffer = buffer or vim.api.nvim_get_current_buf()
   local is_enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = buffer })
-  local is_enabled_now = not is_enabled
+  local is_enabled_next = not is_enabled
 
-  if is_enabled_now then
+  if is_enabled_next then
     create_auto_commands()
   else
     clear_auto_commands()
   end
 
-  vim.lsp.inlay_hint.enable(is_enabled_now, { bufnr = buffer })
-  return is_enabled_now
+  vim.lsp.inlay_hint.enable(is_enabled_next, { bufnr = buffer })
+  return is_enabled_next
 end
 
 return {
