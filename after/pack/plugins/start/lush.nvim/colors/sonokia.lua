@@ -205,6 +205,7 @@ lush(lush(function(injected_functions)
     DiagnosticVirtualTextWarn({ DarkOrangeBackground, fg = Orange.fg }),
     DiagnosticVirtualTextInfo({ DarkOrangeBackground, fg = Yellow.fg }),
     DiagnosticVirtualTextHint({ DarkBlueBackground, fg = Blue.fg }),
+    DiagnosticUnnecessary({ LightGrey }),
     -- Syntax
     Type({ BlueItalic }),
     Structure({ BlueItalic }),
