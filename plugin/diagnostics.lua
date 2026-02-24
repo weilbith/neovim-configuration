@@ -1,6 +1,6 @@
 local icons = require('icons')
 local severity = vim.diagnostic.severity
-local circular_numbers = { '❶', '❷', '❸', '❹', '❺', '❻', '❼', '❽', '❾' }
+local namespace = vim.api.nvim_create_namespace('lsp/diagnostic')
 
 local function number_to_circular_number(_, index)
   return (circular_numbers[index] or index) .. ' '
@@ -25,6 +25,5 @@ vim.diagnostic.config({
     header = '',
     anchor_bias = 'below',
     source = true,
-    prefix = number_to_circular_number,
   },
 })
