@@ -74,6 +74,7 @@ vim.opt.listchars = {
 vim.opt.diffopt = 'internal,filler,closeoff,vertical,context:3,algorithm:patience'
 vim.opt.viewoptions = { 'cursor', 'folds' }
 vim.opt.laststatus = 0
+vim.opt.statusline = string.rep(vim.opt.fillchars:get().horiz, vim.api.nvim_win_get_width(0))
 vim.opt.cmdheight = 1
 vim.opt.splitkeep = 'screen'
 vim.opt.exrc = true
