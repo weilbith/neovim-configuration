@@ -1,7 +1,0 @@
-vim.api.nvim_set_hl(0, 'BufferLineBufferVisible', { link = 'White' })
-vim.api.nvim_set_hl(0, 'BufferLineBufferSelected', { link = 'WhiteBold' })
-vim.api.nvim_set_hl(0, 'BufferLineTabSelected', { link = 'BufferLineBufferSelected' })
-vim.api.nvim_set_hl(0, 'BufferLineIndicatorSelected', { link = 'GreenBold' })
-vim.api.nvim_set_hl(0, 'BufferLineModified', { link = 'OrangeBold' })
-vim.api.nvim_set_hl(0, 'BufferLineModifiedVisible', { link = 'BufferLineModified' })
-vim.api.nvim_set_hl(0, 'BufferLineModifiedSelected', { link = 'BufferLineModifiedSelected' })
