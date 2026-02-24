@@ -96,6 +96,12 @@ require('telescope').setup({
       end,
     },
   },
+  extensions = {
+    ast_grep = {
+      command = { 'ast-grep', '--json=stream' },
+      grep_open_files = false,
+    },
+  },
 })
 
 vim.cmd.packadd('telescope-fzy-native.nvim')

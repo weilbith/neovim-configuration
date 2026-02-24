@@ -9,6 +9,10 @@ vim.keymap.set('n', '<leader>bb', function()
 end, { desc = 'search for buffers in fuzzy finder' })
 
 vim.keymap.set('n', '<leader>ss', function()
+  vim.cmd.Telescope('ast_grep')
+end, { desc = 'structural, syntax aware text pattern search' })
+
+vim.keymap.set('n', '<leader>sS', function()
   vim.cmd.Telescope('live_grep')
 end, { desc = 'search for text ("grep") in fuzzy finder' })
 
@@ -17,7 +21,7 @@ vim.keymap.set('n', '<leader>sw', function()
 end, { desc = 'search for word under cursor in fuzzy finder' })
 
 vim.keymap.set('n', '<leader>sr', function()
-  vim.cmd.Telescope('resum')
+  vim.cmd.Telescope('resume')
 end, { desc = 'resume last search in fuzzy finder' })
 
 vim.keymap.set('n', '<leader>sR', function()
