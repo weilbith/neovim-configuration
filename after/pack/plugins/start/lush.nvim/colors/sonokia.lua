@@ -146,7 +146,7 @@ lush(lush(function(injected_functions)
     ModeMsg({ WhiteBold }),
     MoreMsg({ BlueBold }),
     MatchParen({ gui = 'bold,underline' }),
-    Whitespace({ fg = hsl('#414550') }),
+    Whitespace({ fg = hsl('#626878') }),
     NonSpace({ Whitespace }),
     NonText({ Whitespace }),
     SpecialKey({ Whitespace }),
