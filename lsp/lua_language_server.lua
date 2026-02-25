@@ -25,6 +25,7 @@ return {
           'assert',
         },
       },
+      codelens = { enable = true },
       runtime = {
         path = { '?.lua', '?/init.lua' },
       },
