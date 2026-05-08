@@ -84,10 +84,10 @@ local function start_to_notify_about_missing_server_installations()
           :totable()
 
         if #client_names_with_missing_server > 0 then
-          vim.schedule(function() -- do not block UI
+          vim.defer_fn(function() -- do not block UI
             local name_listing = vim.iter(client_names_with_missing_server):join(', ')
             vim.notify('Missing server installations for: ' .. name_listing)
-          end)
+          end, 1000)
         end
       end
     end,
