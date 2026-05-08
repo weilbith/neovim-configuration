@@ -64,7 +64,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     if any_client_supports_folding(arguments.buf) then
       vim.iter(find_windows_displaying_this_buffer(arguments.buf)):each(function(window)
         set_lsp_based_folding(window)
-        vim.lsp.foldclose('imports', window)
+        vim.defer_fn(function()
+          vim.lsp.foldclose('imports' --[[ , window ]])
+        end, 500)
       end)
     end
   end,
