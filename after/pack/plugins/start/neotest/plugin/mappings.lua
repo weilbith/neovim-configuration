@@ -22,7 +22,7 @@ vim.keymap.set('n', '<localleader>ta', function()
 end, { desc = 'attach to the current test run and observe logs' })
 
 vim.keymap.set('n', '<localleader>to', function()
-  vim.cmd.Neotest('output enter=true')
+  vim.cmd.Neotest('output')
 end, { desc = 'open the output of the (failed) test case at cursor' })
 
 vim.keymap.set('n', '<localleader>tc', function()
