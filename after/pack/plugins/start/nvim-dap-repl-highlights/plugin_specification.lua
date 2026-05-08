@@ -3,7 +3,8 @@ require('packer').use({
   opt = true,
   run = function()
     require('nvim-dap-repl-highlights').setup()
-    vim.cmd.TSInstall('dap_repl')
+    vim.packadd('nvim-treesitter')
+    require('nvim-treesitter').install({ 'dap_repl' })
   end,
 })
 
