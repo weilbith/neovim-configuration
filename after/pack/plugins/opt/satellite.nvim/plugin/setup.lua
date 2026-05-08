@@ -19,5 +19,6 @@ require('satellite').setup({
   excluded_filetypes = {
     'neo-tree',
     'DressingInput',
+    'Glance',
   },
 })
