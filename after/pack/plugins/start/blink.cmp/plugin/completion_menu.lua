@@ -1,5 +1,6 @@
 local cmp = require('blink.cmp')
 
+vim.g.completion_menu_open_function = cmp.open
 vim.g.completion_menu_is_open_function = cmp.is_menu_visible
 
 vim.g.completion_menu_entry_is_selected_function = function()

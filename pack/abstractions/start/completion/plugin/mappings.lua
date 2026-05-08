@@ -27,6 +27,16 @@ end, {
   desc = 'select next entry if completion menu is open, else normal <Tab>',
 })
 
+vim.keymap.set({ 'i', 'c', 's' }, '<A-Tab>', function()
+  if not completion_menu.is_open() then
+    completion_menu.open()
+  else
+    escape_and_feed_keys('<A-Tab>', 'n')
+  end
+end, {
+  desc = 'manually open completion - for example without automatic trigger',
+})
+
 vim.keymap.set({ 'i', 'c', 's' }, '<S-Tab>', function()
   if completion_menu.is_open() then
     completion_menu.select_previous_entry()

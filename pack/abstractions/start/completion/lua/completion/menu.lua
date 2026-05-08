@@ -18,6 +18,14 @@ local function is_open()
   end
 end
 
+local function open()
+  if type(vim.g.completion_menu_open_function) == 'function' then
+    return vim.g.completion_menu_open_function()
+  else
+    escape_and_feed_keys('<C-X><C-O>', 'i')
+  end
+end
+
 local function entry_is_selected()
   if type(vim.g.completion_menu_entry_is_selected_function) == 'function' then
     return vim.g.completion_menu_entry_is_selected_function()
@@ -64,6 +72,7 @@ end
 
 return {
   is_open = is_open,
+  open = open,
   entry_is_selected = entry_is_selected,
   is_open_and_entry_selected = is_open_and_entry_selected,
   select_next_entry = select_next_entry,
