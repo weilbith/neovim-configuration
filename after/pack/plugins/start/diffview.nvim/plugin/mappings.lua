@@ -17,7 +17,7 @@ vim.keymap.set(
   { desc = 'open interface to inspect git history in diff mode' }
 )
 
-vim.keymap.set('n', '<leader>gD', function()
+vim.keymap.set('n', '<leader>gdf', function()
   vim.cmd.DiffviewFileHistory('%')
 end, { desc = 'open interface to inspect git history in diff mode for current file only' })
 
