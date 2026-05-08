@@ -3,6 +3,7 @@ vim.schedule(function()
   vim.api.nvim_set_hl(0, 'BlinkCmpLabelMatch', { link = 'Bold' })
   vim.api.nvim_set_hl(0, 'BlinkCmpLabelDescription', { link = 'LightGrey' })
   vim.api.nvim_set_hl(0, 'BlinkCmpLabelDetail', { link = 'Italic' })
+  vim.api.nvim_set_hl(0, 'BlinkCmpSignatureHelp', { link = 'DarkGreyBackgroundContrast' })
   vim.api.nvim_set_hl(
     0,
     'BlinkCmpLabelDeprecated',

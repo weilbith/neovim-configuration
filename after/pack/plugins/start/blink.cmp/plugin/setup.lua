@@ -15,7 +15,9 @@ local source_id_to_icon = {
 
 ---@type blink.cmp.Config
 require('blink.cmp').setup({
-  -- TODO: disabling
+  enabled = function()
+    return not vim.tbl_contains({ 'DressingInput' }, vim.bo.filetype)
+  end,
   completion = {
     trigger = {
       show_on_backspace = true,
@@ -79,7 +81,12 @@ require('blink.cmp').setup({
     },
   },
   snippets = { preset = 'luasnip' },
-  signature = { enabled = true },
+  signature = {
+    enabled = true,
+    window = {
+      border = 'bold',
+    },
+  },
   sources = {
     default = vim.list_extend(
       { 'luasnip_choice', 'dap', 'git' },
