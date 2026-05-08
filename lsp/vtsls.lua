@@ -42,6 +42,9 @@ return {
         enabled = 'always',
       },
       preferGoToSourceDefinition = true,
+      compilerOptions = {
+        noErrorTruncation = true,
+      },
     },
     vtsls = {
       experimental = {
