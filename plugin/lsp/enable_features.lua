@@ -1,5 +1,10 @@
-vim.lsp.on_type_formatting.enable()
-vim.lsp.linked_editing_range.enable()
+if vim.lsp.on_type_formatting then
+  vim.lsp.on_type_formatting.enable()
+end
+
+if vim.lsp.linked_editing_range then
+  vim.lsp.linked_editing_range.enable()
+end
 
 -- TODO: Why does this API work differently? All this just to change the `style`
 local group = vim.api.nvim_create_augroup('Lsp/enable_features', {})
@@ -9,10 +14,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'enable LSP document colors with non default style',
   callback = function(arguments)
     local client = vim.lsp.get_client_by_id(arguments.data.client_id)
+    local has_support = client ~= nil
+      and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentColor)
+      and vim.lsp.document_color
 
-    if
-      client ~= nil and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentColor)
-    then
+    if has_support then
       vim.lsp.document_color.enable(true, arguments.buf, { style = 'virtual' })
     end
   end,
