@@ -1,4 +1,4 @@
-vim.lsp.config('vscode-json-language-server', {
+vim.lsp.config('vscode_json_languageservice', {
   settings = {
     json = {
       schemas = require('schemastore').json.schemas(),
@@ -7,7 +7,7 @@ vim.lsp.config('vscode-json-language-server', {
   },
 })
 
-vim.lsp.config('yaml-language-server', {
+vim.lsp.config('yaml_language_server', {
   settings = {
     yaml = {
       schemastore = {
